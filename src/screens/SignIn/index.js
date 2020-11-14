@@ -28,9 +28,10 @@ export default () => {
     }
 
     const handleMessageButtonClick = () => {
-        navigation.navigate('SignUp');
+        navigation.reset({
+            routes: [{ name: 'SignUp' }]
+        });
     }
-
 
     return (
         <Container>
