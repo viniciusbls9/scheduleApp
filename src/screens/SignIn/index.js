@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import BarberLogo from '../../assets/barber.png';
 import EmailIcon from '../../assets/email.png';
@@ -17,9 +18,19 @@ import {
 } from './styles'
 
 export default () => {
+    const navigation = useNavigation();
 
     const [emailField, setEmailField] = useState('');
     const [PasswordField, setPasswordField] = useState('');
+
+    const handleSignClick = () => {
+
+    }
+
+    const handleMessageButtonClick = () => {
+        navigation.navigate('SignUp');
+    }
+
 
     return (
         <Container>
@@ -42,13 +53,12 @@ export default () => {
                     password={true}
                 />
 
-
-                <CustomButton>
+                <CustomButton onPress={handleSignClick}>
                     <CustomButtonText>Login</CustomButtonText>
                 </CustomButton>
             </InputArea>
 
-            <SignMessageButton>
+            <SignMessageButton onPress={handleMessageButtonClick}>
                 <SignMessageButtonText>Ainda não possui uma conta?</SignMessageButtonText>
                 <SignMessageButtonTextBold>Cadastra-se</SignMessageButtonTextBold>
             </SignMessageButton>
