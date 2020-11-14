@@ -40,7 +40,7 @@ export const SignMessageButton = styled.TouchableOpacity `
 
 export const SignMessageButtonText = styled.Text `
     font-size: 16px;
-    color: #268596;
+    color: #fff;
 `;
 
 export const SignMessageButtonTextBold = styled.Text `

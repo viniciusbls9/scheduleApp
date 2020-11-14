@@ -39,6 +39,7 @@ export default () => {
                     placeholder="Digite sua senha"
                     value={PasswordField}
                     onChangeText={t => setPasswordField(t)}
+                    password={true}
                 />
 
 
