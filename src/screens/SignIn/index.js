@@ -19,6 +19,7 @@ import {
     SignMessageButton,
     SignMessageButtonText,
     SignMessageButtonTextBold,
+    MsgError,
 } from './styles'
 
 export default () => {
@@ -27,13 +28,14 @@ export default () => {
 
     const [emailField, setEmailField] = useState('');
     const [passwordField, setPasswordField] = useState('');
+    const [messageError, setMessageError] = useState('');
 
     const handleSignClick = async () => {
-        if(emailField != '' && passwordField != '') {
-            
+        if (emailField != '' && passwordField != '') {
+
             let res = await api.signIn(emailField, passwordField);
 
-            if(res.token) {
+            if (res.token) {
                 await AsyncStorage.setItem('token', res.token);
 
                 UserDispatch({
@@ -48,7 +50,7 @@ export default () => {
                 });
 
             } else {
-                alert('E-mail e/ou senha errado!');
+                setMessageError('E-mail e/ou senha errado!');
             }
 
         } else {
@@ -86,6 +88,7 @@ export default () => {
                 <CustomButton onPress={handleSignClick}>
                     <CustomButtonText>Login</CustomButtonText>
                 </CustomButton>
+                <MsgError>{messageError}</MsgError>
             </InputArea>
 
             <SignMessageButton onPress={handleMessageButtonClick}>

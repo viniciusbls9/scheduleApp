@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+import { UserContext } from '../../contexts/UserContext';
 
 import BarberLogo from '../../assets/barber.png';
 import PersonIcon from '../../assets/person.png';
@@ -21,6 +23,7 @@ import {
 } from './styles'
 
 export default () => {
+    const { dispatch: UserDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [nameField, setNameField] = useState('');
@@ -31,10 +34,20 @@ export default () => {
         if(nameField != '' && emailField != '' && passwordField != '') {
             let res = await api.signUp(nameField, emailField, passwordField);
 
-            console.log(res);
-
             if(res.token) {
-                alert('deu certo');
+                await AsyncStorage.setItem('token', res.token);
+
+                UserDispatch({
+                    type: 'setAvatar',
+                    payload: {
+                        avatar: res.data.avatar
+                    }
+                });
+
+                navigation.reset({
+                    routes: [{ name: 'MainTab' }]
+                })
+
             } else {
                 alert(res.error);
             }
