@@ -7,6 +7,8 @@ import EmailIcon from '../../assets/email.png';
 import LockIcon from '../../assets/lock.png';
 
 import SignInput from '../../components/SignInput';
+import api from '../../services/api';
+
 import {
     Container,
     BarberImg,
@@ -23,10 +25,22 @@ export default () => {
 
     const [nameField, setNameField] = useState('');
     const [emailField, setEmailField] = useState('');
-    const [PasswordField, setPasswordField] = useState('');
+    const [passwordField, setPasswordField] = useState('');
 
-    const handleSignClick = () => {
+    const handleSignClick = async () => {
+        if(nameField != '' && emailField != '' && passwordField != '') {
+            let res = await api.signUp(nameField, emailField, passwordField);
 
+            console.log(res);
+
+            if(res.token) {
+                alert('deu certo');
+            } else {
+                alert(res.error);
+            }
+        } else {
+            alert('preencha os campos');
+        }
     }
 
     const handleMessageButtonClick = () => {
@@ -44,8 +58,8 @@ export default () => {
                 <SignInput
                     IconPng={PersonIcon}
                     placeholder="Digite seu nome"
-                    value={emailField}
-                    onChangeText={t => setEmailField(t)}
+                    value={nameField}
+                    onChangeText={t => setNameField(t)}
                 />
 
                 <SignInput
@@ -59,7 +73,7 @@ export default () => {
                 <SignInput
                     IconPng={LockIcon}
                     placeholder="Digite sua senha"
-                    value={PasswordField}
+                    value={passwordField}
                     onChangeText={t => setPasswordField(t)}
                     password={true}
                 />

@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+import { UserContext } from '../../contexts/UserContext';
 
 import BarberLogo from '../../assets/barber.png';
 import EmailIcon from '../../assets/email.png';
 import LockIcon from '../../assets/lock.png';
 
 import SignInput from '../../components/SignInput';
+import api from '../../services/api';
+
 import {
     Container,
     BarberImg,
@@ -18,13 +22,38 @@ import {
 } from './styles'
 
 export default () => {
+    const { dispatch: UserDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [emailField, setEmailField] = useState('');
-    const [PasswordField, setPasswordField] = useState('');
+    const [passwordField, setPasswordField] = useState('');
 
-    const handleSignClick = () => {
+    const handleSignClick = async () => {
+        if(emailField != '' && passwordField != '') {
+            
+            let res = await api.signIn(emailField, passwordField);
 
+            if(res.token) {
+                await AsyncStorage.setItem('token', res.token);
+
+                UserDispatch({
+                    type: 'setAvatar',
+                    payload: {
+                        avatar: json.data.avatar
+                    }
+                });
+
+                navigation.reset({
+                    routes: [{ name: 'MainTab' }]
+                });
+
+            } else {
+                alert('E-mail e/ou senha errado!');
+            }
+
+        } else {
+            alert('preencha os campos');
+        }
     }
 
     const handleMessageButtonClick = () => {
@@ -49,7 +78,7 @@ export default () => {
                 <SignInput
                     IconPng={LockIcon}
                     placeholder="Digite sua senha"
-                    value={PasswordField}
+                    value={passwordField}
                     onChangeText={t => setPasswordField(t)}
                     password={true}
                 />
