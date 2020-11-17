@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { UserContext } from '../../contexts/UserContext';
@@ -20,6 +20,7 @@ import {
     SignMessageButton,
     SignMessageButtonText,
     SignMessageButtonTextBold,
+    MsgError,
 } from './styles'
 
 export default () => {
@@ -29,6 +30,7 @@ export default () => {
     const [nameField, setNameField] = useState('');
     const [emailField, setEmailField] = useState('');
     const [passwordField, setPasswordField] = useState('');
+    const [messageError, setMessageError] = useState('');
 
     const handleSignClick = async () => {
         if(nameField != '' && emailField != '' && passwordField != '') {
@@ -49,7 +51,7 @@ export default () => {
                 })
 
             } else {
-                alert(res.error);
+                setMessageError(res.error);
             }
         } else {
             alert('preencha os campos');
@@ -94,6 +96,8 @@ export default () => {
                 <CustomButton onPress={handleSignClick}>
                     <CustomButtonText>Login</CustomButtonText>
                 </CustomButton>
+                <MsgError>{messageError}</MsgError>
+
             </InputArea>
 
             <SignMessageButton onPress={handleMessageButtonClick}>
