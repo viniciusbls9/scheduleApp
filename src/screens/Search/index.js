@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, Paragraph } from './styles';
 
 export default () => {
     return (
         <Container>
-            <Text>Search</Text>
+            <Paragraph>Search</Paragraph>
         </Container>
     )
 }

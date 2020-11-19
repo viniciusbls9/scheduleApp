@@ -4,6 +4,6 @@ export const Container = styled.SafeAreaView `
 
 `;
 
-export const Text = styled.Text `
+export const Paragraph = styled.Text `
 
 `;
