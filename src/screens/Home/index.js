@@ -1,10 +1,17 @@
-import React from 'react';
-import { Container } from './styles';
+import React, { useState } from 'react';
+
+
+import {
+    Container,
+    Paragraph
+} from './styles'
 
 export default () => {
+
+
     return (
         <Container>
-            <Text>Home</Text>
+            <Paragraph>Teste</Paragraph>
         </Container>
-    )
+    );
 }

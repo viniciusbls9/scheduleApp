@@ -41,7 +41,7 @@ export default () => {
                 UserDispatch({
                     type: 'setAvatar',
                     payload: {
-                        avatar: json.data.avatar
+                        avatar: res.data.avatar
                     }
                 });
 
