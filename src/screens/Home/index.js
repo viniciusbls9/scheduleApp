@@ -5,7 +5,7 @@ import { request, PERMISSIONS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 
 import api from '../../services/api';
-
+import BarberItem from '../../components/BarberItem';
 import search from '../../assets/search.png';
 import mylocation from '../../assets/my_location.png';
 import {
@@ -59,10 +59,11 @@ export default () => {
         setList([]);
 
         let res = await api.getBarbers();
-        if(res.error == '') {
-            if(res.loc) {
+        if (res.error == '') {
+            if (res.loc) {
                 setLocationText(res.loc);
             }
+            console.log(res.data);
             setList(res.data);
         } else {
             alert(res.error);
@@ -77,37 +78,36 @@ export default () => {
 
     return (
         <Container>
-            <Scroller>
-                <Header>
-                    <Title numberOfLines={2}>Encontre o seu Barbeiro Favorito</Title>
-                    <SearchButton onPress={() => navigation.navigate('Search')}>
-                        <ImageIcon source={search} />
-                    </SearchButton>
-                </Header>
+            <Header>
+                <Title numberOfLines={2}>Encontre o seu Barbeiro Favorito</Title>
+                <SearchButton onPress={() => navigation.navigate('Search')}>
+                    <ImageIcon source={search} />
+                </SearchButton>
+            </Header>
 
-                <LocationArea>
-                    <LocationInput
-                        placeholder="Onde você está?"
-                        placeholderTextColor="#fff"
-                        value={locationText}
-                        onChangeText={t => setLocationText(t)}
-                    />
-                    <LocationFinder onPress={handleLocationFinder}>
-                        <ImageIcon source={mylocation} />
-                    </LocationFinder>
-                </LocationArea>
+            <LocationArea>
+                <LocationInput
+                    placeholder="Onde você está?"
+                    placeholderTextColor="#fff"
+                    value={locationText}
+                    onChangeText={t => setLocationText(t)}
+                />
+                <LocationFinder onPress={handleLocationFinder}>
+                    <ImageIcon source={mylocation} />
+                </LocationFinder>
+            </LocationArea>
 
-                {loading &&
-                    <LoadingIcon size="large" color="#fff" />
-                }
+            {loading &&
+                <LoadingIcon size="large" color="#fff" />
+            }
 
-                <ListArea>
-                    {list.map((item, k) => {
-                        <BarberItem key={k} data={item} />
-                    })}
-                </ListArea>
+            <ListArea
+                showsVerticalScrollIndicator={false}
+                keyExtractor={item => item.id.toString()}
+                data={list}
+                renderItem={({item}) => <BarberItem key={item.id} data={item} />}
+            />
 
-            </Scroller>
         </Container>
     );
 }
