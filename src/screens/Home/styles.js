@@ -65,3 +65,12 @@ export const ListArea = styled.FlatList `
     margin-top: 30px;
     /* margin-bottom: 30px; */
 `;
+
+export const Refresh = styled.TouchableHighlight `
+    margin-top: 10px;
+`;
+
+export const RefreshText = styled.Text `
+    color: #fff;
+
+`;

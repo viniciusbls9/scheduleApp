@@ -16,7 +16,7 @@ export default {
     },
 
     signIn: async (email, password) => {
-        
+
         const req = await fetch(`${BASE_API}/auth/login`, {
             method: 'POST',
             headers: {
@@ -42,9 +42,14 @@ export default {
         return json;
     },
 
-    getBarbers: async () => {
+    getBarbers: async (lat = null, lng = null, address = null) => {
         const token = await AsyncStorage.getItem('token');
-        const req = await fetch(`${BASE_API}/barbers?token=${token}`);
+
+        console.log({ lat });
+        console.log({ lng });
+        console.log({ address });
+
+        const req = await fetch(`${BASE_API}/barbers?token=${token}&lat=${lat}&lng=${lng}&address=${address}`);
         const json = await req.json();
         return json;
     }

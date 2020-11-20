@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { request, PERMISSIONS } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
@@ -20,6 +20,8 @@ import {
     LocationFinder,
     LoadingIcon,
     ListArea,
+    Refresh,
+    RefreshText,
 
 } from './styles'
 
@@ -47,7 +49,6 @@ export default () => {
             setList([]);
 
             Geolocation.getCurrentPosition((info) => {
-                console.log(info);
                 setCoords(info.coords);
                 getBarbers();
             });
@@ -58,7 +59,15 @@ export default () => {
         setLoading(true);
         setList([]);
 
-        let res = await api.getBarbers();
+        let lat = null;
+        let lng = null;
+
+        if(coords) {
+            lat = coords.latitude;
+            lng = coords.longitude;
+        }
+
+        let res = await api.getBarbers(lat, lng, locationText);
         if (res.error == '') {
             if (res.loc) {
                 setLocationText(res.loc);
@@ -75,6 +84,15 @@ export default () => {
         getBarbers();
     }, []);
 
+    const handleRefresh = () => {
+        getBarbers();
+    }
+
+    const handleLocationSearch = () => {
+        setCoords({});
+        getBarbers();
+    }
+
     return (
         <Container>
             <Header>
@@ -90,6 +108,7 @@ export default () => {
                     placeholderTextColor="#fff"
                     value={locationText}
                     onChangeText={t => setLocationText(t)}
+                    onEndEditing={handleLocationSearch}
                 />
                 <LocationFinder onPress={handleLocationFinder}>
                     <ImageIcon source={mylocation} />
@@ -104,9 +123,12 @@ export default () => {
                 showsVerticalScrollIndicator={false}
                 keyExtractor={item => item.id.toString()}
                 data={list}
-                renderItem={({item}) => <BarberItem key={item.id} data={item} />}
+                renderItem={({ item }) => <BarberItem key={item.id} data={item} />}
             />
 
+            <Refresh onPress={handleRefresh} underlayColor="transparent">
+                <RefreshText>Atualizar Listagem</RefreshText>
+            </Refresh>
         </Container>
     );
 }
