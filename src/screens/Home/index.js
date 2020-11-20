@@ -63,7 +63,6 @@ export default () => {
             if (res.loc) {
                 setLocationText(res.loc);
             }
-            console.log(res.data);
             setList(res.data);
         } else {
             alert(res.error);
