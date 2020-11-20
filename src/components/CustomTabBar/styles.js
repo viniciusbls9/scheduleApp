@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 export const TabArea = styled.View `
     height: 60px;
-    background-color: #4eadb3;
+    background-color: #fff;
     flex-direction: row;
 `;
 
@@ -18,9 +18,9 @@ export const TabItemCenter = styled.TouchableOpacity `
     height: 70px;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #DCA71B;
     border-radius: 35px;
-    border: 3px solid #4eadb3;
+    border: 3px solid #bf8f0f;
     margin-top: -20px;
 `;
 
