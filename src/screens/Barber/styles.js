@@ -36,7 +36,10 @@ export const SwipeImage = styled.Image`
 `;
 
 export const FakeSwiper = styled.View`
-
+    height: 180px;
+    background-color: #2e2e2e;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const PageBody = styled.View`
@@ -90,9 +93,98 @@ export const UserFavImage = styled.Image`
 `;
 
 export const ServiceArea = styled.View`
+    margin-top: 20px;
+`;
+
+export const ServicesTitle = styled.Text `
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+`;
+
+export const ServiceItem = styled.View `
+    flex-direction: row;
+    margin-bottom: 40px;
+`;
+
+export const ServiceInfo = styled.View `
+    flex:1 ;
+`;
+
+export const ServiceName = styled.Text `
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+`;
+
+export const ServicePrice = styled.Text `
+    font-size: 14px;
+    color: #f0bb30;
+    font-weight: bold;
+`;
+
+export const ServiceChosseButton = styled.TouchableOpacity `
+    background-color: #f0bb30;
+    border-radius: 10px;
+    padding: 10px 15px;
+`;
+
+export const ServiceButtonText = styled.Text `
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+`;
+
+export const TestimonialArea = styled.View `
+    margin-bottom: 50px;
+`;
+
+export const TestimonialItem = styled.View `
+    background-color: #2e2e2e;
+    padding: 15px 20px;
+    border-radius: 10px;
+    height: 110px;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
 
 `;
 
-export const TestimonialArea = styled.View`
+export const TestimonialInfo = styled.View `
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 5px; */
+`;
 
+export const TestimonialName = styled.Text `
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+`;
+
+export const TestimonialBody = styled.Text `
+    font-size: 13px;
+`;
+
+export const BackButton = styled.TouchableOpacity `
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+`;
+
+export const BackIcon = styled.Image`
+    width: 30px;
+    height: 30px;
+`;
+
+export const LoadingIcon = styled.ActivityIndicator `
+    margin-top: 50px;
+`;
+
+export const NavIcon = styled.Image `
+    width: 35px;
+    height: 35px;
 `;

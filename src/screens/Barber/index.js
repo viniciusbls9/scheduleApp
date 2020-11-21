@@ -5,6 +5,10 @@ import Swiper from 'react-native-swiper';
 import api from '../../services/api';
 import Stars from '../../components/Stars';
 import favorite from '../../assets/favorite.png';
+import backIcon from '../../assets/back.png';
+import NavPrevIcon from '../../assets/nav_prev.png';
+import NavNextIcon from '../../assets/nav_next.png';
+
 import {
     Container,
     Scroller,
@@ -21,7 +25,22 @@ import {
     UserFavButton,
     UserFavImage,
     ServiceArea,
+    ServicesTitle,
+    ServiceItem,
+    ServiceInfo,
+    ServiceName,
+    ServicePrice,
+    ServiceChosseButton,
+    ServiceButtonText,
     TestimonialArea,
+    TestimonialItem,
+    TestimonialInfo,
+    TestimonialName,
+    TestimonialBody,
+    BackButton,
+    BackIcon,
+    LoadingIcon,
+    NavIcon,
 
 } from './styles';
 
@@ -52,6 +71,10 @@ export default () => {
         getBarberInfo();
     }, []);
 
+    const handleBackButton = () => {
+        navigation.goBack();
+    }
+
     return (
         <Container>
             <Scroller>
@@ -77,7 +100,9 @@ export default () => {
 
                     </Swiper>
                     :
-                    <FakeSwiper></FakeSwiper>
+                    <FakeSwiper>
+                        <UserInfoName>Barbeiro não possui imagens</UserInfoName>
+                    </FakeSwiper>
                 }
 
                 <PageBody>
@@ -94,16 +119,60 @@ export default () => {
                         </UserFavButton>
                     </UserInfoArea>
 
-                    <ServiceArea>
+                    {loading &&
+                        <LoadingIcon size="large" color="#DCA71B" />
+                    }
 
-                    </ServiceArea>
+                    {userInfo.services &&
+                        <ServiceArea>
+                            <ServicesTitle>Lista de Serviços</ServicesTitle>
 
-                    <TestimonialArea>
+                            {userInfo.services.map((item, key) => (
+                                <ServiceItem key={key}>
+                                    <ServiceInfo>
+                                        <ServiceName>{item.name}</ServiceName>
+                                        <ServicePrice> R$ {item.price}</ServicePrice>
+                                    </ServiceInfo>
 
-                    </TestimonialArea>
+                                    <ServiceChosseButton>
+                                        <ServiceButtonText>Agendar</ServiceButtonText>
+                                    </ServiceChosseButton>
+                                </ServiceItem>
+                            ))}
+                        </ServiceArea>
+                    }
+
+                    {userInfo.testimonials && userInfo.testimonials.length > 0 &&
+                        <TestimonialArea>
+                            <Swiper
+                                style={{ height: 110 }}
+                                showsPagination={false}
+                                showsButtons={true}
+                                prevButton={<NavIcon source={NavPrevIcon} />}
+                                nextButton={<NavIcon source={NavNextIcon} />}
+                            >
+
+                                {userInfo.testimonials.map((item, key) => (
+                                    <TestimonialItem key={key}>
+                                        <TestimonialInfo>
+                                            <TestimonialName>{item.name}</TestimonialName>
+                                            <Stars stars={item.rate} showNumber={false} />
+                                        </TestimonialInfo>
+                                        <TestimonialBody>{item.body}</TestimonialBody>
+                                    </TestimonialItem>
+                                ))}
+
+                            </Swiper>
+                        </TestimonialArea>
+                    }
 
                 </PageBody>
             </Scroller>
+
+            <BackButton onPress={handleBackButton}>
+                <BackIcon source={backIcon} />
+            </BackButton>
+
         </Container>
     );
 }

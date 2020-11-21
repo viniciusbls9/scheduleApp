@@ -19,6 +19,5 @@ export const IconImage = styled.Image `
 export const Input = styled.TextInput `
     flex: 1;
     font-size: 16px;
-    color: #DCA71B;
     margin-left: 10px;
 `;
