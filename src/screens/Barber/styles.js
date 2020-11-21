@@ -137,7 +137,7 @@ export const ServiceButtonText = styled.Text `
 `;
 
 export const TestimonialArea = styled.View `
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 `;
 
 export const TestimonialItem = styled.View `
@@ -148,14 +148,12 @@ export const TestimonialItem = styled.View `
     justify-content: center;
     margin-left: 40px;
     margin-right: 40px;
-
 `;
 
 export const TestimonialInfo = styled.View `
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 5px; */
 `;
 
 export const TestimonialName = styled.Text `
@@ -170,14 +168,14 @@ export const TestimonialBody = styled.Text `
 
 export const BackButton = styled.TouchableOpacity `
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 10px;
+    top: 10px;
     z-index: 9;
 `;
 
 export const BackIcon = styled.Image`
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 `;
 
 export const LoadingIcon = styled.ActivityIndicator `
@@ -185,6 +183,6 @@ export const LoadingIcon = styled.ActivityIndicator `
 `;
 
 export const NavIcon = styled.Image `
-    width: 35px;
-    height: 35px;
+    width: 20px;
+    height: 20px;
 `;

@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 import api from '../../services/api';
 import Stars from '../../components/Stars';
 import favorite from '../../assets/favorite.png';
-import backIcon from '../../assets/back.png';
+import backIcon from '../../assets/nav_prev.png';
 import NavPrevIcon from '../../assets/nav_prev.png';
 import NavNextIcon from '../../assets/nav_next.png';
 
@@ -158,7 +158,7 @@ export default () => {
                                             <TestimonialName>{item.name}</TestimonialName>
                                             <Stars stars={item.rate} showNumber={false} />
                                         </TestimonialInfo>
-                                        <TestimonialBody>{item.body}</TestimonialBody>
+                                        <TestimonialBody numberOfLines={2}>{item.body}</TestimonialBody>
                                     </TestimonialItem>
                                 ))}
 

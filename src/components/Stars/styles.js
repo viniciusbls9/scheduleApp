@@ -11,13 +11,14 @@ export const StarView = styled.View `
 `;
 
 export const StarIcon = styled.Image `
-    width: 18px;
-    height: 18px;
+    width: 13px;
+    height: 13px;
+    margin-right: 3px;
 `;
 
 export const StarText = styled.Text `
     font-size: 12px;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 8px;
     color: #fff;
 `;
