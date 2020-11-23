@@ -201,7 +201,7 @@ export default () => {
 
             <BarberModal
                 show={showModal}
-                setShowModal={setShowModal}
+                setShow={setShowModal}
                 user={userInfo}
                 service={selectedService}
 
