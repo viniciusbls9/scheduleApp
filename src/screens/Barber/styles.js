@@ -93,7 +93,7 @@ export const UserFavImage = styled.Image`
 `;
 
 export const ServiceArea = styled.View`
-    margin-top: 20px;
+    margin-top: 40px;
 `;
 
 export const ServicesTitle = styled.Text `
@@ -168,8 +168,8 @@ export const TestimonialBody = styled.Text `
 
 export const BackButton = styled.TouchableOpacity `
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 15px;
+    top: 15px;
     z-index: 9;
 `;
 
@@ -185,4 +185,11 @@ export const LoadingIcon = styled.ActivityIndicator `
 export const NavIcon = styled.Image `
     width: 20px;
     height: 20px;
+`;
+
+export const Error = styled.Text `
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin-top :40px;
 `;

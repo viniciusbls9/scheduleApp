@@ -33,6 +33,7 @@ export default () => {
     const [coords, setCoords] = useState(null);
     const [loading, setLoading] = useState(false);
     const [list, setList] = useState([]);
+    const [messageError, setMessageError] = useState('');
 
     const handleLocationFinder = async () => {
         setCoords(null);
@@ -62,7 +63,7 @@ export default () => {
         let lat = null;
         let lng = null;
 
-        if(coords) {
+        if (coords) {
             lat = coords.latitude;
             lng = coords.longitude;
         }
@@ -74,7 +75,7 @@ export default () => {
             }
             setList(res.data);
         } else {
-            alert(res.error);
+            setMessageError(res.error);
         }
 
         setLoading(false);
@@ -117,6 +118,10 @@ export default () => {
 
             {loading &&
                 <LoadingIcon size="large" color="#fff" />
+            }
+
+            {messageError != '' &&
+                <Error>{messageError}</Error>
             }
 
             <ListArea
