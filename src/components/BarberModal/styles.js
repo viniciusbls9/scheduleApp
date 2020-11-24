@@ -28,10 +28,10 @@ export const CloseButtonIcon = styled.Image `
 `;
 
 export const ModalItem = styled.View `
-    background-color: #f7f7f7;
+    background-color: #ddd;
     border-radius: 10px;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 14px;
 `;
 
 export const UserInfo = styled.View `
@@ -50,4 +50,65 @@ export const UserName = styled.Text `
     color: #000;
     font-size: 18px;
     font-weight: bold;
+`;
+
+export const ServiceInfo = styled.View `
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+export const ServiceName = styled.Text `
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+export const ServicePrice = styled.Text `
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+
+export const DateInfo = styled.View `
+    flex-direction: row;
+`;
+
+export const DatePrevArea = styled.TouchableOpacity `
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+`;
+
+export const DataIcon = styled.Image `
+    width: 27px;
+    height: 27px;
+`;
+
+export const DateTitleArea = styled.View `
+    width: 140px;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const DateTitle = styled.Text `
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+`;
+
+export const DateNextArea = styled.TouchableOpacity `
+    flex: 1;
+    align-items: flex-start;
+`;
+
+
+export const FinishButton = styled.TouchableOpacity `
+    background-color: #ddd;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+`;
+    
+export const FinishButtonText = styled.Text `
+    font-size: 15px;
 `;
