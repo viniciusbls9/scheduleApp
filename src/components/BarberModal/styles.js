@@ -72,6 +72,30 @@ export const DateInfo = styled.View `
     flex-direction: row;
 `;
 
+export const DateList = styled.ScrollView `
+
+`;
+
+export const DateItem = styled.TouchableOpacity `
+    width: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin-top: 20px;
+`;
+
+export const DateItemWeekDay = styled.Text `
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+export const DateItemDay = styled.Text `
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+
 export const DatePrevArea = styled.TouchableOpacity `
     flex: 1;
     justify-content: flex-end;
@@ -111,4 +135,22 @@ export const FinishButton = styled.TouchableOpacity `
     
 export const FinishButtonText = styled.Text `
     font-size: 15px;
+`;
+
+export const TimeList = styled.ScrollView `
+
+`;
+
+export const TimeItem = styled.TouchableOpacity `
+    width: 75px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-right: 10px;
+`;
+
+export const TimeText =styled.Text `
+    font-size: 16px;
+    color: #000;
 `;
