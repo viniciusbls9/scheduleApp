@@ -5,18 +5,16 @@ export const Container = styled.SafeAreaView `
     background-color: #222;
 `;
 
-export const SearchArea = styled.View `
-    background-color: #2e2e2e;
-    height: 50px;
-    border-radius: 25px;
+export const HeaderArea = styled.View `
+    height: 40px;
+    justify-content: center;
     padding: 0 20px;
-    margin: 20px;
 `;
 
-export const SearchInput = styled.TextInput `
-    flex: 1;
+export const HeaderTitle = styled.TextInput `
     font-size: 16px;
     color: #fff;
+    font-weight: bold;
 `;
 
 export const Scroller = styled.ScrollView `
