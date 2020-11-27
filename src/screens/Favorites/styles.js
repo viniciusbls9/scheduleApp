@@ -6,7 +6,7 @@ export const Container = styled.SafeAreaView `
 `;
 
 export const HeaderArea = styled.View `
-    height: 40px;
+    height: 50px;
     justify-content: center;
     padding: 0 20px;
 `;

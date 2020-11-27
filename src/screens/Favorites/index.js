@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api';
 import BarberItem from '../../components/BarberItem';
-import { HeaderArea, HeaderTitle, Container, Scroller, ListArea, } from './styles';
+import { HeaderArea, HeaderTitle, Container, Scroller, ListArea, EmptyWarning, } from './styles';
 
 export default () => {
 
@@ -30,10 +30,16 @@ export default () => {
     return (
         <Container>
             <HeaderArea>
-                <HeaderTitle>Favoritos</HeaderTitle>
+                <HeaderTitle>
+                    Favoritos (Atualizar)
+                </HeaderTitle>
             </HeaderArea>
 
             <Scroller>
+
+                {!loading && list.length === 0 &&
+                    <EmptyWarning>Não há favoritos</EmptyWarning>
+                }
 
                 <ListArea>
                     {list.map((item, key) => (

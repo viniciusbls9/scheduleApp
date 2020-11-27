@@ -79,7 +79,7 @@ export default {
     },
 
     setFavorite: async (barberId) => {
-        const token = AsyncStorage.getItem('token');
+        const token = await AsyncStorage.getItem('token');
 
         const req = await fetch(`${BASE_API}/user/favorite`, {
             method: 'POST',
