@@ -5,18 +5,6 @@ export const Container = styled.SafeAreaView `
     background-color: #222;
 `;
 
-export const HeaderArea = styled.View `
-    height: 50px;
-    justify-content: center;
-    padding: 0 20px;
-`;
-
-export const HeaderTitle = styled.TextInput `
-    font-size: 16px;
-    color: #fff;
-    font-weight: bold;
-`;
-
 export const Scroller = styled.ScrollView `
     flex: 1;
     padding: 0 20px;

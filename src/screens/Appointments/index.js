@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api';
-import BarberItem from '../../components/BarberItem';
-import { HeaderArea, HeaderTitle, Container, Scroller, ListArea, EmptyWarning, } from './styles';
+import AppointmentsItem from '../../components/AppointmentsItem';
+import { Container, Scroller, ListArea, EmptyWarning, } from './styles';
+import { RefreshControl } from 'react-native';
 
 export default () => {
 
@@ -29,13 +30,11 @@ export default () => {
 
     return (
         <Container>
-            <HeaderArea>
-                <HeaderTitle>
-                    Favoritos (Atualizar)
-                </HeaderTitle>
-            </HeaderArea>
-
-            <Scroller>
+            <Scroller
+                refreshControl={
+                    <RefreshControl refreshing={loading} onRefresh={getAppointments} />
+                }
+            >
 
                 {!loading && list.length === 0 &&
                     <EmptyWarning>Não há agendamentos</EmptyWarning>
@@ -43,7 +42,7 @@ export default () => {
 
                 <ListArea>
                     {list.map((item, key) => (
-                        <BarberItem key={key} data={item} />
+                        <AppointmentsItem key={key} data={item} />
                     ))}
                 </ListArea>
             </Scroller>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, Button } from 'react-native';
+import { WebView } from 'react-native-webview';
 import { useNavigation } from '@react-navigation/native';
 
 import api from '../../services/api';

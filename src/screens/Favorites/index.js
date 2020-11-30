@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { RefreshControl } from 'react-native';
 
 import api from '../../services/api';
 import BarberItem from '../../components/BarberItem';
@@ -12,10 +13,6 @@ export default () => {
     useEffect(() => {
         getFavorites();
     }, []);
-
-    const handleFavorite = () => {
-        getFavorites();
-    }
 
     const getFavorites = async () => {
         setLoading(true);
@@ -33,13 +30,17 @@ export default () => {
 
     return (
         <Container>
-            <HeaderArea onPress={handleFavorite} underlayColor="transparent">
+            <HeaderArea>
                 <HeaderTitle>
-                    Favoritos (Atualizar)
+                    Favoritos
                 </HeaderTitle>
             </HeaderArea>
 
-            <Scroller>
+            <Scroller
+                refreshControl={
+                    <RefreshControl refreshing={loading} onRefresh={getFavorites} />
+                }
+            >
 
                 {!loading && list.length === 0 &&
                     <EmptyWarning>Não há favoritos</EmptyWarning>
