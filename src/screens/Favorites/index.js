@@ -13,6 +13,10 @@ export default () => {
         getFavorites();
     }, []);
 
+    const handleFavorite = () => {
+        getFavorites();
+    }
+
     const getFavorites = async () => {
         setLoading(true);
         setList([]);
@@ -29,7 +33,7 @@ export default () => {
 
     return (
         <Container>
-            <HeaderArea>
+            <HeaderArea onPress={handleFavorite} underlayColor="transparent">
                 <HeaderTitle>
                     Favoritos (Atualizar)
                 </HeaderTitle>

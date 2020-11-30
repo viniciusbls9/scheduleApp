@@ -5,13 +5,13 @@ export const Container = styled.SafeAreaView `
     background-color: #222;
 `;
 
-export const HeaderArea = styled.View `
+export const HeaderArea = styled.TouchableHighlight `
     height: 50px;
     justify-content: center;
     padding: 0 20px;
 `;
 
-export const HeaderTitle = styled.TextInput `
+export const HeaderTitle = styled.Text `
     font-size: 16px;
     color: #fff;
     font-weight: bold;
