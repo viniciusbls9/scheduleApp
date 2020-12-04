@@ -1,13 +1,14 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView `
+    background-color: #222222;
     flex: 1;
 `;
 export const Header = styled.View `
     height: 200px;
     justify-content: center;
     align-items: center;
-    background-color: #222;
+    background-color: #2e2e2e;
 `;
 
 export const ProfileImage = styled.Image `
@@ -25,4 +26,27 @@ export const ProfileName = styled.Text `
 export const ProfileMail = styled.Text `
     color: #aaa;
     font-size: 12px;
+`;
+
+export const ChangeInfosContainer = styled.View `
+    padding: 30px;
+`;
+
+export const ChangeInfos = styled.TouchableOpacity `
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom-width: 1px;
+    border-bottom-color: #aaa;
+`;
+
+export const ChangeInfosText = styled.Text `
+    color: #aaa;
+
+`;
+
+export const ChangeInfosIcon = styled.Image `
+    width: 22px;
+    height: 22px;
 `;

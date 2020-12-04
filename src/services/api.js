@@ -139,7 +139,6 @@ export default {
         const token = await AsyncStorage.getItem('token');
         const req = await fetch(`${BASE_API}/user?token=${token}`);
         const json = await req.json();
-        console.log(body);
         return json;
     },
 

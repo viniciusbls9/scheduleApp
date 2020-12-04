@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigation } from '@react-navigation/native';
 
+import Nav from '../../assets/nav_next.png';
 import api from '../../services/api';
-import { Container, Header, ProfileImage, ProfileName, ProfileMail } from './styles';
+import { Container, Header, ProfileImage, ProfileName, ProfileMail, ChangeInfos, ChangeInfosText, ChangeInfosContainer, ChangeInfosIcon } from './styles';
 
 export default () => {
     const navigation = useNavigation();
@@ -37,6 +38,13 @@ export default () => {
                 <ProfileName>Olá, {name}</ProfileName>
                 <ProfileMail>{email}</ProfileMail>
             </Header>
+
+            <ChangeInfosContainer>
+                <ChangeInfos>
+                    <ChangeInfosText>Trocar informações da conta</ChangeInfosText>
+                    <ChangeInfosIcon source={Nav} />
+                </ChangeInfos>
+            </ChangeInfosContainer>
         </Container>
     )
 }
