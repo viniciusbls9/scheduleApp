@@ -15,3 +15,14 @@ export const ProfileImage = styled.Image `
     height: 80px;
     border-radius: 40px;
 `;
+
+export const ProfileName = styled.Text `
+    margin-top: 14px;
+    color: #aaa;
+    font-size: 16px;
+`;
+
+export const ProfileMail = styled.Text `
+    color: #aaa;
+    font-size: 12px;
+`;

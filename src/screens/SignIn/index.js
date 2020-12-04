@@ -75,6 +75,7 @@ export default () => {
                     placeholder="Digite seu e-mail"
                     value={emailField}
                     onChangeText={t => setEmailField(t)}
+                    autoCapitalize="none"
                 />
 
                 <SignInput
@@ -83,6 +84,7 @@ export default () => {
                     value={passwordField}
                     onChangeText={t => setPasswordField(t)}
                     password={true}
+                    autoCapitalize="none"
                 />
 
                 <CustomButton onPress={handleSignClick}>

@@ -3,12 +3,13 @@ import { UserContext } from '../../contexts/UserContext';
 import { useNavigation } from '@react-navigation/native';
 
 import api from '../../services/api';
-import { Container, Header, ProfileImage } from './styles';
+import { Container, Header, ProfileImage, ProfileName, ProfileMail } from './styles';
 
 export default () => {
     const navigation = useNavigation();
 
     const [name, setName] = useState();
+    const [email, setEmail] = useState();
 
     const { state: user } = useContext(UserContext);
 
@@ -21,17 +22,20 @@ export default () => {
 
     const handleUser = async () => {
         let json = await api.getUser();
-        console.log(json);
+        setName(json.data.name);
+        setEmail(json.data.email);
     }
-    
+
     useEffect(() => {
-        handleUser(name);
+        handleUser();
     }, []);
 
     return (
         <Container>
             <Header>
                 <ProfileImage source={{ uri: user.avatar }} />
+                <ProfileName>Olá, {name}</ProfileName>
+                <ProfileMail>{email}</ProfileMail>
             </Header>
         </Container>
     )

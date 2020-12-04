@@ -75,6 +75,7 @@ export default () => {
                     placeholder="Digite seu nome"
                     value={nameField}
                     onChangeText={t => setNameField(t)}
+                    autoCapitalize="none"
                 />
 
                 <SignInput
@@ -82,6 +83,7 @@ export default () => {
                     placeholder="Digite seu e-mail"
                     value={emailField}
                     onChangeText={t => setEmailField(t)}
+                    autoCapitalize="none"
                 />
 
 
@@ -90,6 +92,7 @@ export default () => {
                     placeholder="Digite sua senha"
                     value={passwordField}
                     onChangeText={t => setPasswordField(t)}
+                    autoCapitalize="none"
                     password={true}
                 />
 
