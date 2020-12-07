@@ -4,6 +4,10 @@ export const Container = styled.SafeAreaView `
     background-color: #222222;
     flex: 1;
 `;
+
+export const Scroller = styled.ScrollView ``;
+
+
 export const Header = styled.View `
     height: 200px;
     justify-content: center;
@@ -49,4 +53,22 @@ export const ChangeInfosText = styled.Text `
 export const ChangeInfosIcon = styled.Image `
     width: 22px;
     height: 22px;
+`;
+
+export const ExitContainer = styled.View `
+    padding: 0 30px;
+
+`;
+
+export const ExitButton = styled.TouchableOpacity `
+    height: 60px;
+    border-width: 2px;
+    border-color: #DCA71B;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const ExitButtonText = styled.Text `
+    color: #fff;
 `;

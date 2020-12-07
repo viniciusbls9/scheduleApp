@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Nav from '../../assets/nav_next.png';
 import api from '../../services/api';
-import { Container, Header, ProfileImage, ProfileName, ProfileMail, ChangeInfos, ChangeInfosText, ChangeInfosContainer, ChangeInfosIcon } from './styles';
+import { Container, Scroller, Header, ProfileImage, ProfileName, ProfileMail, ChangeInfos, ChangeInfosText, ChangeInfosContainer, ChangeInfosIcon, ExitContainer, ExitButton, ExitButtonText } from './styles';
 
 export default () => {
     const navigation = useNavigation();
@@ -33,18 +33,26 @@ export default () => {
 
     return (
         <Container>
-            <Header>
-                <ProfileImage source={{ uri: user.avatar }} />
-                <ProfileName>Olá, {name}</ProfileName>
-                <ProfileMail>{email}</ProfileMail>
-            </Header>
+            <Scroller>
+                <Header>
+                    <ProfileImage source={{ uri: user.avatar }} />
+                    <ProfileName>Olá, {name}</ProfileName>
+                    <ProfileMail>{email}</ProfileMail>
+                </Header>
 
-            <ChangeInfosContainer>
-                <ChangeInfos>
-                    <ChangeInfosText>Trocar informações da conta</ChangeInfosText>
-                    <ChangeInfosIcon source={Nav} />
-                </ChangeInfos>
-            </ChangeInfosContainer>
+                <ChangeInfosContainer>
+                    <ChangeInfos onPress={() => navigation.navigate('ChangeInfos')}>
+                        <ChangeInfosText>Trocar informações da conta</ChangeInfosText>
+                        <ChangeInfosIcon source={Nav} />
+                    </ChangeInfos>
+                </ChangeInfosContainer>
+            </Scroller>
+            <ExitContainer>
+                <ExitButton>
+                    <ExitButtonText>Sair</ExitButtonText>
+                </ExitButton>
+            </ExitContainer>
+
         </Container>
     )
 }
