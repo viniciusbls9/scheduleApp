@@ -6,7 +6,7 @@ export const InputArea = styled.View `
     background-color: #fff;
     flex-direction: row;
     border-radius: 30px;
-    padding-left: 15px;
+    padding-left: 10px;
     align-items: center;
     margin-bottom: 15px;
 `;

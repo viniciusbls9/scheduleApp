@@ -71,4 +71,5 @@ export const ExitButton = styled.TouchableOpacity `
 
 export const ExitButtonText = styled.Text `
     color: #fff;
+    text-transform: uppercase;
 `;

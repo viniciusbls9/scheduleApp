@@ -47,8 +47,9 @@ export default () => {
                     </ChangeInfos>
                 </ChangeInfosContainer>
             </Scroller>
+
             <ExitContainer>
-                <ExitButton>
+                <ExitButton onPress={handleLogout}>
                     <ExitButtonText>Sair</ExitButtonText>
                 </ExitButton>
             </ExitContainer>
