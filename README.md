@@ -4,4 +4,4 @@ A API que o aplicativo está consumindo foi fornecida pela plataforma B7Web, foc
 
 
   <img src="https://github.com/viniciusbls9/scheduleApp/blob/master/github/5.jpeg" width="50%" /><img src="https://github.com/viniciusbls9/scheduleApp/blob/master/github/3.jpeg" width="50%" />
-  <img src="https://github.com/viniciusbls9/scheduleApp/blob/master/github/1.jpeg" width="100%" />
+  <img src="https://github.com/viniciusbls9/scheduleApp/blob/master/github/1.jpeg" width="50%" />
